@@ -1,0 +1,30 @@
+@page
+@model MovieReviews.Pages_Movies.DeleteReviewModel
+
+@{
+    ViewData["Title"] = "Delete Review";
+}
+
+<h1>Delete</h1>
+<h4>Review</h4>
+<hr />
+<form method="post">
+    <div class="row mb-3">
+        <div class="col-4">
+            <label asp-for="ReviewID" class="control-label"></label>
+            <select asp-for="ReviewID" asp-items="Model.Reviews" class="form-select">
+                <option value="">Choose...</option>
+            </select>
+            <span asp-validation-for="ReviewID" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete Review</button>
+</form>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
